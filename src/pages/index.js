@@ -1,22 +1,36 @@
 import React from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Img from "gatsby-image"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+
+const IndexPage = ({ data }) => {
+  // const { file: { childImageSharp: { fluid: fluid } } } = data
+
+  return (
+    <Layout>
+      <div className="home">
+        <div className="csu-log">
+          <Img fluid={data.file.childImageSharp.fluid} className="csu-img" />
+        </div>
+        <h1>Chicago State University</h1>
+        <h3>Summer 2020</h3>
+        <h3>TCP/IP class Labs</h3>
+      </div>
+
+    </Layout>
+  )
+}
 
 export default IndexPage
+
+export const query = graphql`
+  {
+    file(relativePath: {eq: "csu_logo.png"}) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

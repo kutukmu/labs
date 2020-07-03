@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@400;500&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+
+.navbar{
+    
+    height: 90vh;
+    padding:1rem;
+
+    .logo{
+        height: 15%;
+       
+        display: flex;
+        align-items: center;
+        .logo-icon{
+            font-size: 35px;
+            color: rgb(113, 89, 193);
+        }
+        h1{
+            font-family: "Roboto";
+            font-size: 20px;
+            margin-left:1rem;
+            padding:0;
+
+        }
+    }
+    .navbar-nav{
+        display: flex;
+        flex-direction: column;
+        margin:0;
+        padding:0;
+        list-style: none;
+        li{
+            margin: 0;
+            padding:0;
+            a{
+                width:100%;
+                padding:0.5rem 1rem;
+                display: block;
+                text-decoration: none;
+                color:rgb(153, 153, 153);
+                border-radius: 5px;
+                transition: .2s ease-in;
+
+                &:hover{
+                    color:rgb(113, 89, 193);
+                    padding-left:2rem;
+                   
+                }
+
+                &.active{
+                    background-color: rgb(245, 245, 250);
+                    color:rgb(102, 102, 102);
+                    &:hover{
+                        color:rgb(113, 89, 193);
+                        padding-left:1rem;
+                       
+                    }
+                }
+            }
+        }
+    }
+}
+
+.home{
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .csu-logo{
+        width:200px;
+        height: 200px;
+        .csu-img{
+            width:100%;
+            height: 100%;
+        }
+    }
+}
+
+
+
+.layout{
+    display: grid;
+    grid-template-columns: 2.5fr 10.5fr;
+   
+}
+
+
+.footer{
+    border:1px solid red;
+    grid-column: 1/-1;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
