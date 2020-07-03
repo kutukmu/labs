@@ -125,6 +125,34 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+
+    .error{
+        position: absolute;
+        top:10px;
+        left:30%;
+        width:350px;
+        height: 50px;
+        background:#d72323;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: 1s ease-in;
+        .error-text{
+          
+            p{
+                color:white;
+                text-align: center;
+            }
+        }
+
+
+        &.show{
+            opacity: 1;
+        }
+    }
     .lab1-inner{
         width:60%;
         border-radius: 5px;

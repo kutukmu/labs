@@ -4,6 +4,8 @@ import { IoMdSync, IoIosCloseCircleOutline } from "react-icons/io"
 const Lab1 = () => {
 
     const [from, setFrom] = useState("binary");
+    const [err, setErr] = useState(false);
+    const [errval, setErrval] = useState("")
     const [to, setTo] = useState("decimal");
     const [fromval, setFromval] = useState("")
     const [obj, setObj] = useState([
@@ -13,37 +15,58 @@ const Lab1 = () => {
     ])
 
     let arr = [from, to]
+    const reset = () => {
+        setObj([
+            { name: "binary", value: "" },
+            { name: "decimal", value: "" },
+            { name: "hexa", value: "" }
+        ])
+    }
 
     const handleChange = (e) => {
         if (e.target.name === "from") {
             setFrom(e.target.value)
 
             setFromval("")
-            setObj([
-                { name: "binary", value: "" },
-                { name: "decimal", value: "" },
-                { name: "hexa", value: "" }
-            ])
+            reset()
+
 
         }
 
         if (e.target.name === "to") {
             setTo(e.target.value)
+            reset()
 
-            setObj([
-                { name: "binary", value: "" },
-                { name: "decimal", value: "" },
-                { name: "hexa", value: "" }
-            ])
 
         }
 
     }
 
+    let strval = String(fromval)
+    let strarr = strval.split("")
+
+    const binaryError = (point) => {
+
+        if (point === "binary" && strarr.some(n => (n > 1))) {
+            setErr(true)
+            setErrval("Binary values are just 0 and 1 ")
+        }
+    }
+
     const handleConvert = (point, target) => {
 
+        binaryError(point)
 
-        if (point === "binary" && (target === "decimal" || target === "hexa")) {
+        setTimeout(() => {
+            setErr(false)
+        }, 2000)
+
+        reset()
+
+
+
+
+        if (point === "binary" && (target === "decimal" || target === "hexa") && strarr.every(n => (n >= 0 && n <= 1))) {
             let decval = parseInt(fromval, 2)
             let hexval = decval.toString(16).toUpperCase();
 
@@ -119,13 +142,7 @@ const Lab1 = () => {
         setFrom("binary");
         setTo("decimal")
         setFromval("")
-        setObj([
-            { name: "binary", value: "" },
-            { name: "decimal", value: "" },
-            { name: "hexa", value: "" }
-        ]
-
-        )
+        reset()
 
 
 
@@ -134,10 +151,17 @@ const Lab1 = () => {
 
 
 
+
+
     return (
         <Layout>
             <div className="lab1">
                 <h1>Number Converter</h1>
+                <div className={`error ${(err) ? "show" : null}`}>
+                    <div className="error-text">
+                        <p><b>Error</b> <br />  {errval}</p>
+                    </div>
+                </div>
                 <div className="lab1-inner">
 
                     <div className="selectors">
