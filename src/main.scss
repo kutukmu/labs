@@ -181,6 +181,7 @@
                 margin-top:1rem;
                 display: flex;
                 
+                
 
                 .btn{
                     width:100px;
@@ -193,6 +194,7 @@
                     justify-content: center;
                     align-items: center;
                     border-radius: 5px;
+                    
                 
                    
 
@@ -204,6 +206,8 @@
                         &.black{
                             color:black;
                         }
+
+                        
                         
                     }
 
@@ -214,7 +218,32 @@
                     &.blue{
                         color:white;
                         background:rgb(113, 89, 193);
+                        
+                        &:hover{
+                            color:#64ffda;
+
+                            .icon{
+                                color:#64ffda;
+                            }
+
+                            
+                            
+                        }
+                        
                     }
+
+
+                    &.red{
+                        &:hover{
+                            background-color:#d72323;
+                            color:white;
+    
+                            .icon.black{
+                                color:white;
+                            }
+                        }
+                    }
+                    
                 }
 
             }

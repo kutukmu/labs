@@ -114,6 +114,23 @@ const Lab1 = () => {
         }
     }
 
+    const handleReset = () => {
+
+        setFrom("binary");
+        setTo("decimal")
+        setFromval("")
+        setObj([
+            { name: "binary", value: "" },
+            { name: "decimal", value: "" },
+            { name: "hexa", value: "" }
+        ]
+
+        )
+
+
+
+    }
+
 
 
 
@@ -152,8 +169,8 @@ const Lab1 = () => {
                         <div className="buttons">
 
                             <button className="btn blue" onClick={() => handleConvert(from, to)}><IoMdSync className="icon" />Convert</button>
-                            <button className="btn"><IoIosCloseCircleOutline className="icon black" />  Reset</button>
-                            <button className="btn">Swap</button>
+                            <button className="btn red" onClick={handleReset}><IoIosCloseCircleOutline className="icon black" />  Reset</button>
+
                         </div>
 
                         <div className="result">
