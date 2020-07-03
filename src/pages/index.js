@@ -9,12 +9,14 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <div className="home">
-        <div className="csu-log">
+        <div className="csu-logo">
           <Img fluid={data.file.childImageSharp.fluid} className="csu-img" />
         </div>
         <h1>Chicago State University</h1>
         <h3>Summer 2020</h3>
-        <h3>TCP/IP class Labs</h3>
+        <h3>TCP/IP Class Labs</h3>
+        <h3>Instructor: Dr. John Chern</h3>
+
       </div>
 
     </Layout>
