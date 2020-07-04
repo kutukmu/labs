@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby"
-import "../main.scss"
+
 import { IoMdGitNetwork } from "react-icons/io";
 const Header = () => {
   return (
