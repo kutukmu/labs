@@ -199,6 +199,11 @@
                 height: 6vh;
                 padding-left:1rem;
                 font-size: 1.1rem;
+
+                &.lab2{
+                    width: 90%;
+                }
+                
                
             }
 
@@ -290,9 +295,6 @@
             padding-left:1rem;
             font-size: 1.1rem;
 
-            &.lab2{
-                width: 90%;
-            }
             
            
         }
