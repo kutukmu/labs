@@ -82,7 +82,7 @@ const Lab2 = () => {
                     <div className="card">
                         <div className="from">
                             <p>Enter number</p>
-                            <input onChange={handleChange} value={val} type="text" name="from" className="box" />
+                            <input onChange={handleChange} value={val} type="text" name="from" className="box lab2" />
 
                         </div>
                         <div className="buttons">
