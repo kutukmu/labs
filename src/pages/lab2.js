@@ -31,7 +31,7 @@ const Lab2 = () => {
     }
 
     const handleClick = () => {
-        if (val.length === 40 && !/[G-Z]/g.test(`${val}` && (val[0] === 4 || val[0] === 6) && val[1] * 4 === 20)) {
+        if (val.length === 40 && !/[G-Z]/g.test(`${val}`) && (val[0] === 4 || val[0] === 6) && /^[0]$/g.test(val.slice(2, 6))) {
             setObj({
 
                 version: val[0],
