@@ -181,13 +181,37 @@ const handleClick = ()=>{
            listobjSecond.push(objarr)
        }
 
+    const  lastarr = listobjSecond[listobjSecond.length -2]
+    const arr = listobjSecond[listobjSecond.length-1].map((n,idx)=>{
+                    if(!n){
+                        return lastarr[idx]
+                    }else {
+                        return n
+                    }
+
+                    
+    })
+
+    let newarr = [...listobjSecond.slice(0,-1), arr]
+
+
+
+
+
       setListObj(prev =>{
           return {
-              arr : [...listobjSecond]
+              arr : [...newarr]
           }
       })
 
       setResult(true)
+
+
+   
+
+   
+
+
 
     
     
@@ -215,7 +239,17 @@ const handleClick = ()=>{
 }
 
 if(listobj.arr.length > 2){
-    console.log(listobj.arr[0][0])
+    // const lastarr = listobj.arr[listobj.arr.length -2]
+    // const arr = listobj.arr[listobj.arr.length-1].map((n,idx)=>{
+    //                 if(!n){
+    //                     return lastarr[idx]
+    //                 }else {
+    //                     return n
+    //                 }
+
+                    
+    // })
+    console.log(listobj.arr)
 
 }
 
@@ -306,7 +340,7 @@ if(listobj.arr.length > 2){
 
                     
                                    {(isresult && listobj.arr.length>0) && <div className="results">
-                                    {Array.from({length:nodes-1}).map((item,num) => {
+                                    {Array.from({length:nodes}).map((item,num) => {
                                         return  <table>
                                         <h3>t = {`${num}`}</h3>
                                                     <thead>
