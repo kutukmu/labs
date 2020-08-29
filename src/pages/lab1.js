@@ -1,229 +1,238 @@
-import React, { useState } from "react"
+import React, { Component } from "react"
 import Layout from "../components/layout"
 import { IoMdSync, IoIosCloseCircleOutline } from "react-icons/io"
-const Lab1 = () => {
+class Lab1 extends Component {
+  constructor(props) {
+    super(props)
 
-    const [from, setFrom] = useState("binary");
-    const [err, setErr] = useState(false);
-    const [errval, setErrval] = useState("")
-    const [to, setTo] = useState("decimal");
-    const [fromval, setFromval] = useState("")
-    const [obj, setObj] = useState([
-        { name: "binary", value: "" },
-        { name: "decimal", value: "" },
-        { name: "hexa", value: "" }
-    ])
-
-    let arr = [from, to]
-    const reset = () => {
-        setObj([
-            { name: "binary", value: "" },
-            { name: "decimal", value: "" },
-            { name: "hexa", value: "" }
-        ])
+    this.state = {
+      studentNumber: "",
+      scores: [],
+      secondScores: [],
+      scoreInput: "",
+      isValid: true,
+      isHidden: false,
     }
+  }
 
-    const handleChange = (e) => {
-        if (e.target.name === "from") {
-            setFrom(e.target.value)
-
-            setFromval("")
-            reset()
-
-
+  addScore = () => {
+    let count = 0
+    while (count < this.state.studentNumber) {
+      this.setState(prev => {
+        return {
+          scores: [...prev.scores, this.createRandomNum(100)],
         }
-
-        if (e.target.name === "to") {
-            setTo(e.target.value)
-            reset()
-
-
-        }
-
+      })
+      count++
     }
+  }
 
-    let strval = String(fromval)
-    let strarr = strval.split("")
-
-    const binaryError = (point) => {
-
-        if (point === "binary" && strarr.some(n => (n > 1))) {
-            setErr(true)
-            setErrval("Binary values are just 0 and 1 ")
-        }
-    }
-
-    const handleConvert = (point, target) => {
-
-        binaryError(point)
-
-        setTimeout(() => {
-            setErr(false)
-        }, 2000)
-
-        reset()
-
-
-
-
-        if (point === "binary" && (target === "decimal" || target === "hexa") && strarr.every(n => (n >= 0 && n <= 1))) {
-            let decval = parseInt(fromval, 2)
-            let hexval = decval.toString(16).toUpperCase();
-
-            setObj(prev => {
-                return prev.map(n => {
-                    if (n.name === "decimal") {
-                        return { name: "decimal", value: decval }
-                    }
-
-                    if (n.name === "hexa") {
-                        return { name: "hexa", value: hexval }
-                    } else {
-                        return n
-                    }
-                })
-            })
-
-        }
-
-        if (point === "decimal" && (target === "binary" || target === "hexa")) {
-            let binval = Number(fromval).toString(2)
-            let hexval = Number(fromval).toString(16).toUpperCase()
-            console.log(hexval)
-            setObj(prev => {
-                return [
-
-                    { name: "binary", value: binval },
-                    { name: "hexa", value: hexval }
-                ]
-            })
-
-        }
-
-        if (point === "hexa" && (target === "binary" || target === "decimal")) {
-            let binval = (parseInt(fromval, 16).toString(2)).padStart(8, '0');
-            let decval = parseInt(fromval, 16);
-
-            setObj(prev => {
-                return [
-
-                    { name: "binary", value: binval },
-                    { name: "decimal", value: decval }
-                ]
-            })
-        }
-
-
-
-
-
-
-
-
-    }
-
-
-    function handleInput(e) {
-        setFromval(e.target.value)
-    }
-
-    function boxVal() {
-        if (!arr.includes("hexa")) {
-            return obj.find(n => n.name === "hexa").value
-        } else if (!arr.includes("binary")) {
-            return obj.find(n => n.name === "binary").value
-        } else if (!arr.includes("decimal")) {
-            return obj.find(n => n.name === "decimal").value
-        }
-    }
-
-    const handleReset = () => {
-
-        setFrom("binary");
-        setTo("decimal")
-        setFromval("")
-        reset()
-
-
-
-    }
-
-
-
-
-
-
-    return (
-        <Layout>
-            <div className="lab1">
-                <h1>Number Converter</h1>
-                <div className={`error ${(err) ? "show" : null}`}>
-                    <div className="error-text">
-                        <p><b>Error</b> <br />  {errval}</p>
-                    </div>
-                </div>
-                <div className="lab1-inner">
-
-                    <div className="selectors">
-                        <div className="from">
-                            <h3>From</h3>
-                            <select id="from" name="from" value={from} onChange={handleChange}>
-                                <option value="binary">Binary</option>
-                                <option value="decimal">Decimal</option>
-                                <option value="hexa">Hexadecimal</option>
-                            </select>
-                        </div>
-
-                        <div className="to">
-                            <h3>To</h3>
-                            <select id="to" name="to" onChange={handleChange} value={to}>
-                                <option value="decimal">Decimal</option>
-                                <option value="binary">Binary</option>
-                                <option value="hexa">Hexadecimal</option>
-                            </select>
-                        </div>
-
-                    </div>
-                    <div className="card">
-                        <div className="from">
-                            <p>Enter {from} number</p>
-                            <input type="text" value={fromval} name="from" onChange={handleInput} className="box" />
-                            <span>Base {(from === "binary") ? "2" : (from === "decimal") ? "10" : (from === "hexa") ? "16" : null}</span>
-                        </div>
-                        <div className="buttons">
-
-                            <button className="btn blue" onClick={() => handleConvert(from, to)}><IoMdSync className="icon" />Convert</button>
-                            <button className="btn red" onClick={handleReset}><IoIosCloseCircleOutline className="icon black" />  Reset</button>
-
-                        </div>
-
-                        <div className="result">
-                            <div className="inner first">
-                                <p>{to[0].toUpperCase() + to.slice(1)} result</p>
-                                <input className="box" value={obj.find(n => n.name === to).value}></input>
-                                <span>Base {(to === "binary") ? "2" : (to === "decimal") ? "10" : (to === "hexa") ? "16" : null}</span>
-                            </div>
-                            <div className="inner second">
-                                <p>{(!arr.includes("hexa")) ? "Hexa" : (!arr.includes("decimal")) ? "Decimal" : (!arr.includes("binary")) ? "Binary" : null} result</p>
-                                <input className="box" value={boxVal()}></input>
-                                <span>Base {(!arr.includes("hexa")) ? "16" : (!arr.includes("decimal")) ? "10" : (!arr.includes("binary")) ? "2" : null}</span>
-                            </div>
-
-
-                        </div>
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        </Layout>
+  handleClick = () => {
+    this.setState(
+      {
+        studentNumber: "",
+        scores: [],
+      },
+      () => {
+        this.setState(
+          {
+            studentNumber: 10,
+          },
+          this.addScore
+        )
+      }
     )
+  }
 
+  createRandomNum = val => {
+    const number = Math.floor(Math.random() * val) + 1
 
+    return number
+  }
 
+  handleSubmit = e => {
+    e.preventDefault()
+    if (this.state.scoreInput > 100 || this.state.scoreInput < 0) {
+      this.setState({
+        isValid: false,
+      })
+
+      setTimeout(() => {
+        this.setState({
+          isValid: true,
+          scoreInput: "",
+        })
+      }, 1000)
+    } else {
+      this.setState(prev => {
+        return {
+          secondScores: [...prev.secondScores, this.state.scoreInput],
+          scoreInput: "",
+        }
+      })
+    }
+  }
+
+  handleDelete = id => {
+    this.setState(prev => {
+      return {
+        secondScores: prev.secondScores.filter((n, idx) => id !== idx),
+      }
+    })
+  }
+
+  render() {
+    return (
+      <Layout>
+        <div className="lab1">
+          <div className="lab1-first">
+            <h1>Lab1 - 1a</h1>
+            <div className="second-container">
+              <div className="add-list">
+                <h3 style={{ color: "White" }}>Student Score List</h3>
+                {this.state.secondScores.length !== 0 ? (
+                  <div className="score-list">
+                    {this.state.secondScores.map((n, idx) => {
+                      return (
+                        <div className="student-score">
+                          <div className="score-info">
+                            <h4>
+                              <b>Name:</b> Student{`${idx + 1}`}
+                            </h4>
+                            <h4
+                              className={`scr ${
+                                n >= 80
+                                  ? "green"
+                                  : n >= 60 && n < 80
+                                  ? "orange"
+                                  : n > 0 && n < 60
+                                  ? "red"
+                                  : ""
+                              }`}
+                            >
+                              <span>Score: </span>
+                              {n}
+                            </h4>
+                          </div>
+
+                          <button
+                            className="btn-delete"
+                            onClick={() => this.handleDelete(idx)}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      )
+                    })}
+                  </div>
+                ) : null}
+                <form onSubmit={this.handleSubmit}>
+                  <div className="input-container">
+                    <input
+                      type="text"
+                      autoComplete="off"
+                      name="score"
+                      required
+                      placeholder="Enter the Score"
+                      value={this.state.scoreInput}
+                      onChange={e =>
+                        this.setState({
+                          scoreInput: e.target.value,
+                        })
+                      }
+                    />
+                    {!this.state.isValid && (
+                      <div className="error">
+                        <h4>Please enter the valid score</h4>
+                      </div>
+                    )}
+                  </div>
+
+                  <button type="submit" className="lab1-btn sm">
+                    Add The List
+                  </button>
+                </form>
+
+                <button
+                  className="lab1-btn"
+                  onClick={() =>
+                    this.setState({ isHidden: !this.state.isHidden })
+                  }
+                >
+                  Show Avarage
+                </button>
+
+                {this.state.isHidden && (
+                  <div className="avg">
+                    <h3>
+                      Number of Students: {this.state.secondScores.length}
+                    </h3>
+                    <h3>
+                      Total points:{" "}
+                      {this.state.secondScores.reduce(
+                        (a, c) => Number(a) + Number(c),
+                        0
+                      )}
+                    </h3>
+                    <h3>
+                      Avarage Score:{" "}
+                      {(
+                        this.state.secondScores.reduce(
+                          (a, c) => Number(a) + Number(c),
+                          0
+                        ) / this.state.secondScores.length
+                      ).toFixed(2)}
+                    </h3>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className="lab1-second">
+            <h1 className="title">Lab 1 - 1b</h1>
+            <div className="fist-container">
+              <button className="lab1-btn" onClick={this.handleClick}>
+                Random Avarage
+              </button>
+              <div className="random-info">
+                <h3>
+                  Number of Students:{" "}
+                  {this.state.studentNumber ? this.state.studentNumber : 0}
+                </h3>
+                <h3>
+                  Total points:{" "}
+                  {this.state.scores.length
+                    ? this.state.scores.reduce((a, c) => a + c)
+                    : 0}
+                </h3>
+                <h3>
+                  Avarage Score:{" "}
+                  {this.state.scores.length
+                    ? (
+                        this.state.scores.reduce((a, c) => a + c) /
+                        this.state.studentNumber
+                      ).toFixed(2)
+                    : 0}
+                </h3>
+                <h3>
+                  Students Scores: [{" "}
+                  {this.state.scores
+                    ? this.state.scores.map(
+                        (score, idx) =>
+                          `${score}${
+                            idx !== this.state.scores.length - 1 ? ", " : ""
+                          }`
+                      )
+                    : "[]"}{" "}
+                  ]
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    )
+  }
 }
 
 export default Lab1
