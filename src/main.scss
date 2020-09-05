@@ -394,6 +394,83 @@ html {
   }
 }
 
+.lab2-second {
+  .lab2-second-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .ratios {
+      display: flex;
+      width: 50%;
+      justify-content: space-between;
+      margin: 0 auto;
+      border-radius: 5px;
+      padding: 1rem;
+      background: #234572;
+      .first-ratio {
+        width: 170px;
+        height: 150px;
+        border-radius: 5px;
+        background: white;
+
+        padding: 10px;
+        .first-form {
+          input {
+            width: 100%;
+            padding: 3px;
+          }
+
+          .line {
+            width: 100%;
+            height: 1px;
+            background: black;
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+
+    .calc-btn {
+      width: 100px;
+      height: 50px;
+      border: none;
+      outline: none;
+      margin-top: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+
+      color: white;
+      background: rgb(113, 89, 193);
+    }
+
+    .results {
+      width: 90%;
+      margin: 20px auto;
+      display: flex;
+      justify-content: space-between;
+      .result {
+        width: 250px;
+        height: 150px;
+        border-radius: 5px;
+        border: 1px solid;
+        padding: 5px;
+
+        .answer {
+          margin-top: 1rem;
+          h4 {
+            font-weight: 500;
+            color: rgba(5, 82, 199, 0.815);
+          }
+        }
+      }
+    }
+  }
+}
+
 .lab3 {
   h1 {
     text-align: center;
