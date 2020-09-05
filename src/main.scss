@@ -401,31 +401,41 @@ html {
     justify-content: center;
     align-items: center;
     .ratios {
-      display: flex;
       width: 50%;
-      justify-content: space-between;
-      margin: 0 auto;
-      border-radius: 5px;
-      padding: 1rem;
-      background: #234572;
-      .first-ratio {
-        width: 170px;
-        height: 150px;
+      .first-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+        margin: 0 auto;
+        align-items: center;
         border-radius: 5px;
-        background: white;
+        padding: 1rem;
+        background: #234572;
 
-        padding: 10px;
-        .first-form {
-          input {
-            width: 100%;
-            padding: 3px;
-          }
+        .rat {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          .first-ratio {
+            width: 170px;
+            height: 150px;
+            border-radius: 5px;
+            background: white;
 
-          .line {
-            width: 100%;
-            height: 1px;
-            background: black;
-            margin: 10px 0;
+            padding: 10px;
+
+            input {
+              width: 100%;
+              padding: 3px;
+            }
+
+            .line {
+              width: 100%;
+              height: 1px;
+              background: black;
+              margin: 10px 0;
+            }
           }
         }
       }
@@ -435,6 +445,7 @@ html {
       width: 100px;
       height: 50px;
       border: none;
+
       outline: none;
       margin-top: 1rem;
       cursor: pointer;

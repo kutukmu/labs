@@ -83,7 +83,8 @@ class lab2 extends Component {
     return amount
   }
 
-  handleClick = () => {
+  handleClick = e => {
+    e.preventDefault()
     const { firstDon, secondDon } = this.state
     console.log(firstDon, secondDon)
     if (firstDon === "0" || secondDon === "0") {
@@ -113,58 +114,66 @@ class lab2 extends Component {
           <h1>Lab 2</h1>
           <div className="lab2-second-inner">
             <div className="ratios">
-              <div className="first-ratio">
-                <h3>Ratio 1</h3>
-                <form className="first-form">
-                  <input
-                    type="text"
-                    name="firstNum"
-                    value={this.state.firstNum}
-                    placeholder="first numerator"
-                    onChange={e =>
-                      this.setState({ [e.target.name]: e.target.value })
-                    }
-                  />
-                  <div className="line"></div>
-                  <input
-                    type="text"
-                    name="firstDon"
-                    value={this.state.firstDon}
-                    placeholder="first denominator"
-                    onChange={e =>
-                      this.setState({ [e.target.name]: e.target.value })
-                    }
-                  />
-                </form>
-              </div>
-              <div className="first-ratio">
-                <h3>Ratio 2</h3>
-                <form className="first-form">
-                  <input
-                    type="text"
-                    name="secondNum"
-                    value={this.state.secondNum}
-                    placeholder="second numerator"
-                    onChange={e =>
-                      this.setState({ [e.target.name]: e.target.value })
-                    }
-                  />
-                  <div className="line"></div>
-                  <input
-                    type="text"
-                    name="secondDon"
-                    value={this.state.secondDon}
-                    placeholder="second denominator"
-                    onChange={e =>
-                      this.setState({ [e.target.name]: e.target.value })
-                    }
-                  />
-                </form>
-              </div>
+              <form className="first-form" onSubmit={this.handleClick}>
+                <div className="rat">
+                  <div className="first-ratio">
+                    <h3>Ratio 2</h3>
+                    <input
+                      type="text"
+                      required
+                      name="firstNum"
+                      value={this.state.firstNum}
+                      placeholder="first numerator"
+                      onChange={e =>
+                        this.setState({ [e.target.name]: e.target.value })
+                      }
+                    />
+                    <div className="line"></div>
+                    <input
+                      type="text"
+                      name="firstDon"
+                      required
+                      value={this.state.firstDon}
+                      placeholder="first denominator"
+                      onChange={e =>
+                        this.setState({ [e.target.name]: e.target.value })
+                      }
+                    />
+                  </div>
+
+                  <div className="first-ratio">
+                    <h3>Ratio 2</h3>
+
+                    <input
+                      type="text"
+                      name="secondNum"
+                      required
+                      value={this.state.secondNum}
+                      placeholder="second numerator"
+                      onChange={e =>
+                        this.setState({ [e.target.name]: e.target.value })
+                      }
+                    />
+                    <div className="line"></div>
+                    <input
+                      type="text"
+                      name="secondDon"
+                      required
+                      value={this.state.secondDon}
+                      placeholder="second denominator"
+                      onChange={e =>
+                        this.setState({ [e.target.name]: e.target.value })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <button className="calc-btn" type="submit">
+                  Calulate
+                </button>
+              </form>
             </div>
-            <button className="calc-btn" onClick={this.handleClick}>
-              Calulate
-            </button>
+
             {this.state.isOpen && (
               <div className="results">
                 <div className="result sum">
@@ -180,8 +189,10 @@ class lab2 extends Component {
                   <h4>Substract result</h4>
                   <div className="answer">
                     <h4>
-                      Ratio1 - Ratio2 = {this.state.subresult.toFixed(2)} ~
-                      {this.numberToFraction(this.state.subresult.toFixed(2))}
+                      Ratio1 - Ratio2 = {this.state.subresult.toFixed(2)} ~ -{" "}
+                      {this.numberToFraction(
+                        this.state.subresult.toFixed(2) * -1
+                      )}
                     </h4>
                   </div>
                 </div>
