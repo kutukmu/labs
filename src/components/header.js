@@ -35,6 +35,11 @@ const Header = () => {
             Lab4
           </Link>
         </li>
+        <li>
+          <Link activeClassName="active" to="/lab5" className="navbar-link">
+            Lab5
+          </Link>
+        </li>
         {/* <li><Link activeClassName="active" to="/lab2" className="navbar-link">Lab2</Link></li> */}
         {/* <li><Link activeClassName="active" to="/lab3" className="navbar-link">Lab3</Link></li> */}
       </ul>
