@@ -622,6 +622,23 @@ html {
       }
     }
   }
+
+  .results {
+    .btn {
+      width: 70px;
+      height: 30px;
+      border: none;
+      outline: none;
+      margin-top: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      background: rgb(206, 44, 44);
+      color: white;
+    }
+  }
 }
 
 .lab5 {
