@@ -22,6 +22,8 @@ const Lab7 = () => {
 
   const [isresult, setResult] = useState(false)
 
+  const [showResult, setShowResult] = useState(false)
+
   const [listobj, setListObj] = useState({
     arr: [],
   })
@@ -166,6 +168,8 @@ const [isNameEntered, setIsNameEntered] = useState(false)
     setDistanceResult(distancesarr)
 
 
+    setShowResult(true)
+
    }
 
   if (listobj.arr.length > 2) {
@@ -302,7 +306,7 @@ const [isNameEntered, setIsNameEntered] = useState(false)
 
 
             {
-              isresult && <div>
+              showResult && <div>
                 {nodeName.namearr.map((item,idx) => {
                   return <div key={idx}>
                     <h2>{`${startNode} to ${item}`}</h2>
