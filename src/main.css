@@ -4,7 +4,7 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -63,8 +63,8 @@ html {
   text-decoration: none;
   color: #999999;
   border-radius: 5px;
-  -webkit-transition: .2s ease-in;
-  transition: .2s ease-in;
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
 }
 
 .navbar .navbar-nav li a:hover {
@@ -145,9 +145,38 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.lab1 .lab1-first {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+}
+
+.lab1 .lab1-first .second-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lab1 .lab1-first .second-container .add-list {
+  width: 450px;
+  border: 1px solid #0c64b6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 10px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -155,72 +184,174 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: relative;
+  padding: 1rem;
+  background: #234572;
 }
 
-.lab1 .error {
-  position: absolute;
-  top: 0;
-  left: 30%;
-  width: 350px;
-  height: 50px;
-  background: #d72323;
-  border-radius: 10px;
+.lab1 .lab1-first .second-container .add-list .avg {
+  width: 100%;
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.lab1 .lab1-first .second-container .add-list .score-list {
+  width: 100%;
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.lab1 .lab1-first .second-container .add-list .score-list .student-score {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+}
+
+.lab1 .lab1-first .second-container .add-list .score-list .student-score .btn-delete {
+  cursor: pointer;
+  background: #d60040;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 5px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.lab1 .lab1-first .second-container .add-list .score-list .student-score .btn-delete:hover {
+  background: #ff3d77;
+}
+
+.lab1 .lab1-first .second-container .add-list .score-list .student-score .score-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lab1 .lab1-first .second-container .add-list .score-list .student-score .score-info h4 {
+  margin-right: 30px;
+  font-weight: 400;
+}
+
+.lab1 .lab1-first .second-container .add-list .score-list .student-score .score-info .scr {
+  font-weight: 600;
+  color: #01b60a;
+  font-size: 18px;
+}
+
+.lab1 .lab1-first .second-container .add-list .score-list .student-score .score-info .scr span {
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.lab1 .lab1-first .second-container .add-list .score-list .student-score .score-info .scr.green {
+  color: #01b60a;
+}
+
+.lab1 .lab1-first .second-container .add-list .score-list .student-score .score-info .scr.orange {
+  color: orange;
+}
+
+.lab1 .lab1-first .second-container .add-list .score-list .student-score .score-info .scr.red {
+  color: red;
+}
+
+.lab1 .lab1-first .second-container .add-list h3 {
+  color: black;
+}
+
+.lab1 .lab1-first .second-container .add-list form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 400px;
+  margin-top: 1rem;
+  border-radius: 5px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: white;
+  padding: 8px;
+}
+
+.lab1 .lab1-first .second-container .add-list .input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  opacity: 0;
-  -webkit-transition: 1s ease-in;
-  transition: 1s ease-in;
 }
 
-.lab1 .error .error-text p {
-  color: white;
-  text-align: center;
+.lab1 .lab1-first .second-container .add-list .input-container input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+  padding: 0.5rem;
+  font-size: 0.875rem;
 }
 
-.lab1 .error.show {
-  opacity: 1;
+.lab1 .lab1-first .second-container .add-list .input-container .error {
+  color: red;
 }
 
-.lab1 .lab1-inner {
-  width: 60%;
-  border-radius: 5px;
-  background: rgba(124, 104, 238, 0.062);
-  -webkit-box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.178);
-          box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.178);
-  padding: 1rem;
-}
-
-.lab1 .lab1-inner .selectors {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.lab1 .lab1-inner .selectors h3 {
+.lab1 .lab1-first .second-container .add-list .input-container .error h4 {
+  font-size: 13px;
   font-weight: 500;
 }
 
-.lab1 .lab1-inner .selectors select {
-  width: 70%;
-  padding: .5rem;
-  font-size: 1rem;
+.lab1 .lab1-second {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
 }
 
-.lab1 .lab1-inner .selectors .from {
-  width: 50%;
+.lab1 .lab1-btn {
+  padding: 10px 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  background: #7159c1;
+  color: white;
+  font-weight: 500;
 }
 
-.lab1 .lab1-inner .selectors .to {
-  width: 50%;
+.lab1 .lab1-btn.sm {
+  padding: 5px 8px;
+  margin: 0;
 }
 
 .card {
@@ -252,7 +383,22 @@ html {
   margin-left: 1rem;
 }
 
-.card .buttons {
+.card .result .inner {
+  margin-top: 1rem;
+}
+
+.card .result .box {
+  width: 70%;
+  height: 6vh;
+  padding-left: 1rem;
+  font-size: 1.1rem;
+}
+
+.card .result span {
+  margin-left: 1rem;
+}
+
+.buttons {
   width: 100%;
   height: 10vh;
   margin-top: 1rem;
@@ -261,7 +407,7 @@ html {
   display: flex;
 }
 
-.card .buttons .btn {
+.buttons .btn {
   width: 100px;
   height: 50px;
   border: none;
@@ -280,55 +426,40 @@ html {
   border-radius: 5px;
 }
 
-.card .buttons .btn .icon {
+.buttons .btn .icon {
   font-size: 1.5rem;
   color: white;
   margin-right: 5px;
 }
 
-.card .buttons .btn .icon.black {
+.buttons .btn .icon.black {
   color: black;
 }
 
-.card .buttons .btn:nth-child(1) {
+.buttons .btn:nth-child(1) {
   margin-left: 0;
 }
 
-.card .buttons .btn.blue {
+.buttons .btn.blue {
   color: white;
   background: #7159c1;
 }
 
-.card .buttons .btn.blue:hover {
+.buttons .btn.blue:hover {
   color: #64ffda;
 }
 
-.card .buttons .btn.blue:hover .icon {
+.buttons .btn.blue:hover .icon {
   color: #64ffda;
 }
 
-.card .buttons .btn.red:hover {
+.buttons .btn.red:hover {
   background-color: #d72323;
   color: white;
 }
 
-.card .buttons .btn.red:hover .icon.black {
+.buttons .btn.red:hover .icon.black {
   color: white;
-}
-
-.card .result .inner {
-  margin-top: 1rem;
-}
-
-.card .result .box {
-  width: 70%;
-  height: 6vh;
-  padding-left: 1rem;
-  font-size: 1.1rem;
-}
-
-.card .result span {
-  margin-left: 1rem;
 }
 
 .lab2 {
@@ -365,5 +496,442 @@ html {
 
 .lab2 .lab2-inner .result .adress {
   margin-top: 1rem;
+}
+
+.lab2-second .lab2-second-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lab2-second .lab2-second-inner .ratios {
+  width: 50%;
+}
+
+.lab2-second .lab2-second-inner .ratios .first-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  padding: 1rem;
+  background: #234572;
+}
+
+.lab2-second .lab2-second-inner .ratios .first-form .rat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.lab2-second .lab2-second-inner .ratios .first-form .rat .first-ratio {
+  width: 170px;
+  height: 150px;
+  border-radius: 5px;
+  background: white;
+  padding: 10px;
+}
+
+.lab2-second .lab2-second-inner .ratios .first-form .rat .first-ratio input {
+  width: 100%;
+  padding: 3px;
+}
+
+.lab2-second .lab2-second-inner .ratios .first-form .rat .first-ratio .line {
+  width: 100%;
+  height: 1px;
+  background: black;
+  margin: 10px 0;
+}
+
+.lab2-second .lab2-second-inner .calc-btn {
+  width: 100px;
+  height: 50px;
+  border: none;
+  outline: none;
+  margin-top: 1rem;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  color: white;
+  background: #7159c1;
+}
+
+.lab2-second .lab2-second-inner .results {
+  width: 90%;
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.lab2-second .lab2-second-inner .results .result {
+  width: 250px;
+  height: 150px;
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 5px;
+}
+
+.lab2-second .lab2-second-inner .results .result .answer {
+  margin-top: 1rem;
+}
+
+.lab2-second .lab2-second-inner .results .result .answer h4 {
+  font-weight: 500;
+  color: rgba(5, 82, 199, 0.815);
+}
+
+.lab3 h1 {
+  text-align: center;
+}
+
+.lab3 .lab3-inner .lab3-input .node-number .select-form {
+  width: 40%;
+  margin: 1rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lab3 .lab3-inner .lab3-input .node-number .select-form label {
+  font-size: 1.2rem;
+}
+
+.lab3 .lab3-inner .lab3-input .node-number .select-form select {
+  padding: 1rem;
+  width: 70%;
+  margin-top: 1rem;
+}
+
+.lab3 .lab3-inner .lab3-input .node-number .select-form .buttons {
+  width: 70%;
+}
+
+.lab3 .lab3-inner .lab3-input .node-number .select-form .buttons .btn {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.lab3 .lab3-inner .lab3-input .node-name form {
+  margin: 1rem 0;
+}
+
+.lab3 .lab3-inner .lab3-input .node-name form input {
+  margin-right: 1rem;
+}
+
+.lab3 .lab3-inner .lab3-input .start-node {
+  width: 500px;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.lab3 .lab3-inner .lab3-input .start-node form select {
+  padding: 0.5rem;
+  margin-right: 1rem;
+}
+
+.lab3 .lab3-inner .lab3-input .start-node form button {
+  background: #7159c1;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.lab3 .lab3-inner .lab3-input .input-box {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.lab3 .lab3-inner .lab3-input .input-box table {
+  margin-top: 1rem;
+}
+
+.lab3 .lab3-inner .lab3-input .input-box table thead {
+  font-weight: 700;
+}
+
+.lab3 .lab3-inner .lab3-input .input-box table thead td {
+  text-align: center;
+}
+
+.lab3 .lab3-inner .lab3-input .input-box table tbody tr td input {
+  width: 100px;
+  margin-top: 5px;
+  margin-left: 3px;
+}
+
+.lab3 .lab3-inner .lab3-input .results {
+  width: 100%;
+  padding: 1rem;
+}
+
+.lab3 .lab3-inner .lab3-input .results table {
+  display: inline-block;
+  margin-left: 2rem;
+  margin-top: 10px;
+  background-color: #e8f0fe;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.lab3 .lab3-inner .lab3-input .results table h3 {
+  text-align: center;
+}
+
+.lab3 .lab3-inner .lab3-input .results table tbody tr td {
+  border: 1px solid black;
+  width: 60px;
+  text-align: center;
+}
+
+.lab4 .form form {
+  width: 500px;
+  margin: 1rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lab4 .form form input {
+  padding: 1rem;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.lab4 .form form button {
+  width: 60%;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  color: white;
+  background: #7159c1;
+}
+
+.lab4 .results .btn {
+  width: 70px;
+  height: 30px;
+  border: none;
+  outline: none;
+  margin-top: 1rem;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  background: #ce2c2c;
+  color: white;
+}
+
+.lab5 {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.lab5 .lab5-inner {
+  width: 70%;
+  border-radius: 5px;
+  background: rgba(124, 104, 238, 0.062);
+  -webkit-box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.178);
+          box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.178);
+  padding: 1rem;
+}
+
+.lab5 .lab5-inner .selectors {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.lab5 .lab5-inner .selectors h3 {
+  font-weight: 500;
+}
+
+.lab5 .lab5-inner .selectors select {
+  width: 70%;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.lab5 .lab5-inner .selectors .from {
+  width: 50%;
+}
+
+.lab5 .lab5-inner .selectors .to {
+  width: 50%;
+}
+
+.lab5 .lab5-inner .card {
+  width: 100%;
+}
+
+.lab5 .lab5-inner .card .from {
+  margin-top: 1rem;
+}
+
+.lab5 .lab5-inner .card .from p {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+}
+
+.lab5 .lab5-inner .card .from .box {
+  width: 70%;
+  height: 6vh;
+  padding-left: 1rem;
+  font-size: 1.1rem;
+}
+
+.lab5 .lab5-inner .card .from span {
+  margin-left: 1rem;
+}
+
+.lab5 .lab5-inner .card .buttons {
+  width: 100%;
+  height: 10vh;
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.lab5 .lab5-inner .card .buttons .btn {
+  width: 100px;
+  height: 50px;
+  border: none;
+  outline: none;
+  margin-left: 1rem;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+}
+
+.lab5 .lab5-inner .card .buttons .btn .icon {
+  font-size: 1.5rem;
+  color: white;
+  margin-right: 5px;
+}
+
+.lab5 .lab5-inner .card .buttons .btn .icon.black {
+  color: black;
+}
+
+.lab5 .lab5-inner .card .buttons .btn:nth-child(1) {
+  margin-left: 0;
+}
+
+.lab5 .lab5-inner .card .buttons .btn.blue {
+  color: white;
+  background: #7159c1;
+}
+
+.lab5 .lab5-inner .card .result .inner {
+  margin-top: 1rem;
+}
+
+.lab5 .lab5-inner .card .result .box {
+  width: 70%;
+  height: 6vh;
+  padding-left: 1rem;
+  font-size: 1.1rem;
+}
+
+.lab5 .lab5-inner .card .result span {
+  margin-left: 1rem;
 }
 /*# sourceMappingURL=main.css.map */
