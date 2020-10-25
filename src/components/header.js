@@ -50,6 +50,11 @@ const Header = () => {
             Lab7
           </Link>
         </li>
+         <li>
+          <Link activeClassName="active" to="/lab8" className="navbar-link">
+            Lab8
+          </Link>
+        </li>
         {/* <li><Link activeClassName="active" to="/lab2" className="navbar-link">Lab2</Link></li> */}
         {/* <li><Link activeClassName="active" to="/lab3" className="navbar-link">Lab3</Link></li> */}
       </ul>
